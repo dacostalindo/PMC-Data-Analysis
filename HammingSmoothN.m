@@ -1,0 +1,1 @@
+function[y,dy]=HammingSmoothN(x,dx,m)% Hamming window smooth, where m is bin # for FWHM smoothing windoww=hamming(m*2+1)/sum(hamming(m*2+1));	% Normalized Hamming weights (it is a column)y=x;dy=dx;for i=m+1:length(x)-m	y(i)=x(i-m:i+m)*w;    dy(i)=sqrt((dx(i-m:i+m).^2)*(w.^2));end
